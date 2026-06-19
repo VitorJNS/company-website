@@ -5,6 +5,11 @@ Landing page institucional em `React + Vite`, em `pt-BR`, para apresentar a VSTe
 ## Assets
 
 - Logo principal: `public/logo/vstech_logo.png`
+- Ícone da aba do navegador: `public/logo/vs-web-icon.png`
+
+## Contato oficial
+
+- E-mail institucional: `vstech-contato@outlook.com`
 
 ## Estrutura atual
 
@@ -24,9 +29,15 @@ Landing page institucional em `React + Vite`, em `pt-BR`, para apresentar a VSTe
 - O scroll considera o header sticky para evitar seções cortadas
 - As seções principais têm mais respiro vertical para melhorar foco e leitura
 - O clique no menu tenta centralizar melhor cada bloco na viewport
+- O destaque do menu fica travado durante o scroll programÃ¡tico para evitar alternÃ¢ncia visual
 - `Contato` e `Fale conosco` levam para a rota dedicada `/contato`
 - Em tablet e celular, o header usa botão de menu expansível
 - O menu mobile pode ser fechado pelo botão `X` ou clicando fora dele
+
+## Deploy
+
+- A Vercel precisa reescrever rotas da SPA para `index.html`
+- O arquivo `vercel.json` foi adicionado para permitir acesso direto a URLs como `/setores` e `/contato`
 
 ## Responsividade
 
@@ -42,11 +53,12 @@ Landing page institucional em `React + Vite`, em `pt-BR`, para apresentar a VSTe
 - Footer reorganizado em composição institucional inspirada no rodapé da Conste
 - Bloco de marca, links rápidos e contato direto separados em grupos claros
 - Faixa inferior com navegação auxiliar e linha de copyright
+- No desktop, o bloco de contato direto fica alinhado à direita para reforçar hierarquia visual
 
 ## Produto em destaque
 
-- `VSLabs`: `https://quimica-expert.vercel.app/`
-- O link do produto abre na mesma aba nesta primeira fase
+- O `VSLabs` é apresentado como produto proprietário da VSTech
+- O site institucional não expõe acesso direto ao sistema
 
 ## Scripts
 

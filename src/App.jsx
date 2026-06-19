@@ -79,7 +79,7 @@ const contactCards = [
   },
   {
     title: 'Contato direto',
-    detail: 'contact@vstech.com',
+    detail: 'vstech-contato@outlook.com',
   },
 ]
 
@@ -123,12 +123,15 @@ export default function App() {
   const historyModeRef = useRef('replace')
   const mobileMenuRef = useRef(null)
   const mobileOverlayRef = useRef(null)
+  const pendingSectionRef = useRef(null)
+  const pendingSectionTimeoutRef = useRef(null)
 
   useEffect(() => {
     const syncFromPath = () => {
       const isContact = window.location.pathname.replace(/\/+$/, '') === '/contato'
       setIsContactPage(isContact)
       setIsMobileMenuOpen(false)
+      clearPendingSection()
 
       if (isContact) {
         setActiveSection('contato')
@@ -148,6 +151,7 @@ export default function App() {
 
     return () => {
       window.removeEventListener('popstate', syncFromPath)
+      clearPendingSection()
     }
   }, [])
 
@@ -196,6 +200,11 @@ export default function App() {
         }
 
         const nextSection = visible.target.id
+        const pendingSection = pendingSectionRef.current
+
+        if (pendingSection && nextSection !== pendingSection) {
+          return
+        }
 
         setActiveSection((current) => {
           if (current === nextSection) {
@@ -214,6 +223,10 @@ export default function App() {
           historyModeRef.current = 'replace'
           return nextSection
         })
+
+        if (pendingSection === nextSection) {
+          clearPendingSection()
+        }
       },
       {
         rootMargin: '-18% 0px -42% 0px',
@@ -242,6 +255,23 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  function clearPendingSection() {
+    pendingSectionRef.current = null
+
+    if (pendingSectionTimeoutRef.current) {
+      window.clearTimeout(pendingSectionTimeoutRef.current)
+      pendingSectionTimeoutRef.current = null
+    }
+  }
+
+  function lockPendingSection(sectionId) {
+    clearPendingSection()
+    pendingSectionRef.current = sectionId
+    pendingSectionTimeoutRef.current = window.setTimeout(() => {
+      clearPendingSection()
+    }, 900)
+  }
+
   function scrollToSection(sectionId, historyMode = 'push', smooth = true) {
     const node = sectionRefs.current[sectionId]
     const header = document.querySelector('.site-header')
@@ -260,6 +290,11 @@ export default function App() {
     const top = sectionHeight <= viewportHeight * 0.84 ? centeredTop : anchoredTop
 
     historyModeRef.current = historyMode
+    if (smooth) {
+      lockPendingSection(sectionId)
+    } else {
+      clearPendingSection()
+    }
     setActiveSection(sectionId)
     window.scrollTo({
       top: Math.max(top, 0),
@@ -419,8 +454,8 @@ export default function App() {
             </div>
 
             <div className="contact-actions">
-              <a className="button button--primary" href="mailto:contact@vstech.com">
-                contact@vstech.com
+              <a className="button button--primary" href="mailto:vstech-contato@outlook.com">
+                vstech-contato@outlook.com
               </a>
               <button
                 className="button button--secondary"
@@ -464,7 +499,7 @@ export default function App() {
                   type="button"
                   onClick={() => handleSectionNavigation('produto')}
                 >
-                  Ver o VSLabs
+                  Conhecer o VSLabs
                 </button>
               </div>
             </div>
@@ -555,34 +590,33 @@ export default function App() {
           >
             <div className="section-heading">
               <p className="eyebrow">Produto em destaque</p>
-              <h2>VSLabs: um exemplo concreto da capacidade de produto da VSTech.</h2>
+              <h2>VSLabs: plataforma laboratorial criada para digitalizar processos analíticos.</h2>
             </div>
 
             <div className="product-layout">
               <div className="product-copy">
                 <p>
-                  O VSLabs é um produto já desenvolvido pela VSTech para apoiar rotinas
-                  técnicas e laboratoriais com mais controle, organização e praticidade.
-                  Ele mostra que não entregamos apenas serviços: também transformamos
-                  conhecimento de domínio em software utilizável.
+                  VSLabs é uma plataforma laboratorial desenvolvida pela VSTech para apoiar
+                  empresas químicas na digitalização e automação de seus processos analíticos.
                 </p>
                 <p>
-                  Esse posicionamento reforça nossa capacidade de atuar em cenários
-                  químicos, farmacêuticos, alimentícios e outros ambientes que exigem
-                  precisão de processo.
+                  Com foco em eficiência, precisão e rastreabilidade, o sistema permite
+                  centralizar informações, processar dados técnicos, acompanhar resultados e
+                  gerar relatórios de forma mais estruturada. A solução foi criada para
+                  laboratórios que desejam reduzir atividades manuais, melhorar a
+                  confiabilidade das análises e preparar sua operação para uma gestão mais
+                  moderna e escalável.
                 </p>
               </div>
 
               <div className="product-card">
-                <span className="signal-label">Produto real em operação</span>
-                <strong>Conheça o VSLabs</strong>
+                <span className="signal-label">Produto proprietário da VSTech</span>
+                <strong>Software especializado para rotina laboratorial</strong>
                 <p>
-                  Acesse o sistema publicado e veja como a VSTech estrutura software
-                  com foco em aplicação técnica.
+                  O VSLabs reforça nossa capacidade de transformar conhecimento técnico em
+                  software aplicável, com estrutura pensada para controle, organização e
+                  evolução operacional.
                 </p>
-                <a className="button button--primary" href="https://quimica-expert.vercel.app/">
-                  Acessar VSLabs
-                </a>
               </div>
             </div>
           </section>
@@ -659,8 +693,8 @@ export default function App() {
 
           <div className="footer-contact">
             <span className="footer-label">Contato direto</span>
-            <a className="footer-email" href="mailto:contact@vstech.com">
-              contact@vstech.com
+            <a className="footer-email" href="mailto:vstech-contato@outlook.com">
+              vstech-contato@outlook.com
             </a>
             <p className="footer-contact-copy">
               Atendimento consultivo para empresas que precisam construir, evoluir

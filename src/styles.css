@@ -854,7 +854,9 @@ button {
   }
 
   .footer-contact {
-    justify-items: start;
+    justify-self: start;
+    width: auto;
+    align-items: flex-start;
     text-align: left;
   }
 }
