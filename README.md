@@ -1,6 +1,6 @@
 # VSTech Website
 
-Landing page institucional em `React + Vite`, em `pt-BR`, para apresentar a VSTech como empresa de desenvolvimento de software para diferentes setores e destacar o produto `VSLabs`.
+Landing page institucional em `React + Vite`, em `pt-BR`, para apresentar a VSTech como empresa de desenvolvimento de software, consultoria técnica e atuação em diferentes setores, além de destacar o produto `VSLabs`.
 
 ## Assets
 
@@ -16,6 +16,7 @@ Landing page institucional em `React + Vite`, em `pt-BR`, para apresentar a VSTe
 - Hero institucional em português
 - Setores atendidos
 - Serviços e capacidades
+- Seção dedicada de consultoria técnica com áreas de atuação e formatos de contratação
 - Bloco de produto para o `VSLabs`
 - Diferenciais de atuação
 - Tela dedicada de contato
@@ -31,6 +32,7 @@ Landing page institucional em `React + Vite`, em `pt-BR`, para apresentar a VSTe
 - O clique no menu tenta centralizar melhor cada bloco na viewport
 - O destaque do menu fica travado durante o scroll programÃ¡tico para evitar alternÃ¢ncia visual
 - `Contato` e `Fale conosco` levam para a rota dedicada `/contato`
+- A seção de consultoria da home usa um botão `Saiba mais` para abrir a tela dedicada `/consultoria/planos`
 - Em tablet e celular, o header usa botão de menu expansível
 - O menu mobile pode ser fechado pelo botão `X` ou clicando fora dele
 
@@ -59,6 +61,14 @@ Landing page institucional em `React + Vite`, em `pt-BR`, para apresentar a VSTe
 
 - O `VSLabs` é apresentado como produto proprietário da VSTech
 - O site institucional não expõe acesso direto ao sistema
+
+## Consultoria
+
+- A home agora apresenta a frente de consultoria técnica da VSTech como serviço principal
+- A seção de consultoria da home foca no posicionamento institucional e nas áreas de atuação
+- Os planos, valores e formatos de contratação ficam em uma tela dedicada: `/consultoria/planos`
+- A tela `/consultoria/planos` permite alternar entre formatos `Pontuais` e `Mensais`
+- Os cards de consultoria nessa tela direcionam o usuário para a rota de contato
 
 ## Scripts
 

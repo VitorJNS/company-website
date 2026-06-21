@@ -417,6 +417,264 @@ button {
   line-height: 1.76;
 }
 
+.section--consulting {
+  background:
+    radial-gradient(circle at top right, rgba(255, 123, 0, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015)),
+    var(--panel);
+}
+
+.consulting-intro {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.consulting-copy {
+  display: grid;
+  gap: 16px;
+}
+
+.consulting-summary-card,
+.consulting-card,
+.consulting-notes {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.consulting-summary-card {
+  padding: 30px;
+  border-radius: 30px;
+}
+
+.consulting-summary-card strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.28rem;
+}
+
+.consulting-summary-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.74;
+}
+
+.consulting-areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.consulting-area-pill {
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 123, 0, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 123, 0, 0.08);
+  font-weight: 700;
+}
+
+.consulting-pricing-heading {
+  margin-top: 40px;
+  margin-bottom: 24px;
+}
+
+.consulting-pricing-heading h3 {
+  margin: 0;
+  max-width: 24ch;
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(1.8rem, 2.4vw, 2.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.consulting-cta-card {
+  display: grid;
+  gap: 14px;
+  max-width: 620px;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background:
+    linear-gradient(145deg, rgba(255, 123, 0, 0.1), rgba(255, 255, 255, 0.02)),
+    rgba(255, 255, 255, 0.025);
+}
+
+.consulting-cta-card strong {
+  font-size: 1.3rem;
+}
+
+.consulting-cta-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.74;
+}
+
+.consulting-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+  justify-content: center;
+  gap: 22px;
+}
+
+.consulting-card {
+  display: grid;
+  grid-template-rows: auto auto auto auto auto 1fr auto;
+  align-content: start;
+  gap: 16px;
+  min-height: 100%;
+  padding: 28px;
+  border-radius: 30px;
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.consulting-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+}
+
+.consulting-card--featured {
+  border-color: rgba(255, 123, 0, 0.34);
+  background:
+    linear-gradient(180deg, rgba(255, 123, 0, 0.12), rgba(255, 255, 255, 0.02)),
+    rgba(255, 255, 255, 0.03);
+}
+
+.consulting-card__category {
+  color: var(--accent-soft);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.consulting-card h3 {
+  margin: 0;
+  font-family: 'Sora', sans-serif;
+  font-size: 1.42rem;
+}
+
+.consulting-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.consulting-card__price strong {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(1.7rem, 2.2vw, 2.35rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  white-space: nowrap;
+}
+
+.consulting-card__price span {
+  color: var(--muted);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.consulting-card__highlight {
+  margin: 0;
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.consulting-card__divider {
+  height: 1px;
+  background: var(--border);
+}
+
+.consulting-card__list,
+.consulting-notes__list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.consulting-card__list {
+  display: grid;
+  gap: 12px;
+  color: var(--muted);
+  line-height: 1.64;
+  align-content: start;
+}
+
+.consulting-card__cta {
+  width: 100%;
+  margin-top: auto;
+}
+
+.consulting-notes {
+  margin-top: 24px;
+  padding: 26px 28px;
+  border-radius: 26px;
+}
+
+.consulting-notes__list {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+  color: var(--muted);
+  line-height: 1.68;
+}
+
+.consulting-plans-page {
+  min-height: calc(100vh - 180px);
+  display: grid;
+  align-content: start;
+  gap: 30px;
+}
+
+.consulting-plans-page__hero h1 {
+  margin: 0;
+  max-width: 13ch;
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(3rem, 3.4vw, 4.8rem);
+  line-height: 1.03;
+  letter-spacing: -0.05em;
+}
+
+.consulting-plan-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.consulting-plan-switcher__button {
+  min-height: 46px;
+  padding: 0 20px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--muted);
+  font-weight: 700;
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.consulting-plan-switcher__button:hover {
+  color: var(--accent-soft);
+}
+
+.consulting-plan-switcher__button--active {
+  color: #170d05;
+  background: linear-gradient(135deg, var(--accent) 0%, #ff9838 100%);
+  box-shadow: 0 10px 24px rgba(255, 123, 0, 0.24);
+}
+
+.consulting-page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
 .inline-link {
   padding: 0;
   color: var(--accent-soft);
@@ -685,7 +943,8 @@ button {
   }
 
   .product-layout,
-  .partners-layout {
+  .partners-layout,
+  .consulting-intro {
     grid-template-columns: 1fr;
   }
 
@@ -707,6 +966,7 @@ button {
   .hero,
   .product-layout,
   .partners-layout,
+  .consulting-pricing-grid,
   .contact-grid,
   .cta-banner,
   .footer-top {
@@ -820,11 +1080,23 @@ button {
     grid-template-columns: 1fr;
   }
 
+  .consulting-areas {
+    gap: 10px;
+  }
+
+  .consulting-area-pill {
+    width: 100%;
+    text-align: center;
+  }
+
   .hero-copy,
   .hero-panel,
   .product-copy,
   .partners-copy,
+  .consulting-copy,
+  .consulting-cta-card,
   .contact-page__hero,
+  .consulting-plans-page__hero,
   .section-intro--wide,
   .footer-brand p {
     max-width: 100%;
@@ -842,6 +1114,14 @@ button {
 
   .contact-grid {
     gap: 16px;
+  }
+
+  .consulting-plan-switcher {
+    width: 100%;
+  }
+
+  .consulting-plan-switcher__button {
+    flex: 1 1 220px;
   }
 
   .contact-card {
@@ -949,17 +1229,32 @@ button {
   }
 
   .hero-actions,
-  .contact-actions {
+  .contact-actions,
+  .consulting-page-actions {
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
   }
 
   .hero-actions .button,
-  .contact-actions .button {
+  .contact-actions .button,
+  .consulting-page-actions .button {
     width: 100%;
     min-height: 42px;
     font-size: 0.92rem;
+  }
+
+  .consulting-plan-switcher {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .consulting-plan-switcher__button {
+    width: 100%;
+    min-height: 42px;
+    padding: 0 14px;
+    font-size: 0.9rem;
   }
 
   .hero-grid {
@@ -989,14 +1284,20 @@ button {
 
   .solution-card,
   .product-card,
-  .contact-card {
+  .contact-card,
+  .consulting-summary-card,
+  .consulting-card,
+  .consulting-notes,
+  .consulting-cta-card {
     padding: 14px;
     border-radius: 18px;
   }
 
   .product-layout,
   .partners-layout,
-  .contact-grid {
+  .contact-grid,
+  .consulting-intro,
+  .consulting-pricing-grid {
     gap: 10px;
   }
 
@@ -1008,16 +1309,49 @@ button {
   .signal-card strong,
   .product-card strong,
   .solution-card h3,
-  .contact-card h2 {
+  .contact-card h2,
+  .consulting-summary-card strong,
+  .consulting-card h3 {
     font-size: 0.98rem;
   }
 
   .solution-card p,
   .product-card p,
-  .signal-card p {
+  .signal-card p,
+  .consulting-summary-card p,
+  .consulting-card__highlight,
+  .consulting-card__list,
+  .consulting-notes__list {
     margin-bottom: 10px;
     font-size: 0.86rem;
     line-height: 1.54;
+  }
+
+  .consulting-pricing-heading {
+    margin-top: 22px;
+    margin-bottom: 12px;
+  }
+
+  .consulting-pricing-heading h3 {
+    font-size: clamp(1.1rem, 5.5vw, 1.4rem);
+  }
+
+  .consulting-card__price {
+    gap: 8px;
+  }
+
+  .consulting-card__price strong {
+    font-size: 1.65rem;
+  }
+
+  .consulting-card__price span {
+    font-size: 0.82rem;
+    transform: translateY(-2px);
+  }
+
+  .consulting-card__cta {
+    min-height: 42px;
+    font-size: 0.92rem;
   }
 
   .sector-list {
@@ -1046,6 +1380,10 @@ button {
   }
 
   .contact-page__hero h1 {
+    font-size: clamp(1.7rem, 8vw, 2.1rem);
+  }
+
+  .consulting-plans-page__hero h1 {
     font-size: clamp(1.7rem, 8vw, 2.1rem);
   }
 
@@ -1135,7 +1473,11 @@ button {
   .site-footer p,
   .solution-card p,
   .product-card p,
-  .signal-card p {
+  .signal-card p,
+  .consulting-summary-card p,
+  .consulting-card__highlight,
+  .consulting-card__list,
+  .consulting-notes__list {
     font-size: 0.82rem;
   }
 }

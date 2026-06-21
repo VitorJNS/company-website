@@ -4,6 +4,7 @@ const homeSections = [
   { id: 'inicio', label: 'Início' },
   { id: 'setores', label: 'Setores' },
   { id: 'servicos', label: 'Serviços' },
+  { id: 'consultoria', label: 'Consultoria' },
   { id: 'produto', label: 'VSLabs' },
   { id: 'diferenciais', label: 'Diferenciais' },
 ]
@@ -38,10 +39,101 @@ const services = [
       'Criamos software para contextos com regras, cálculos, validações e documentação mais exigentes, incluindo laboratórios e operações reguladas.',
   },
   {
-    title: 'Consultoria técnica e de produto',
+    title: 'Consultoria técnica em sistemas e tecnologia',
     description:
-      'Apoiamos times e lideranças na definição de estratégia, arquitetura, prioridades de roadmap e execução com impacto no negócio.',
+      'Apoiamos empresas na análise, correção, evolução e organização de sistemas, processos digitais e decisões técnicas.',
   },
+]
+
+const consultingAreas = [
+  'Manutenção de sistemas existentes',
+  'Correção de bugs e erros',
+  'Análise técnica de sistemas',
+  'Apoio em melhorias e novas funcionalidades',
+  'Revisão de processos digitais',
+  'Apoio em implantação de sistemas',
+  'Configuração de ambientes',
+  'Apoio em deploy e publicação de aplicações',
+  'Integração entre ferramentas',
+  'Orientação sobre arquitetura de sistemas',
+  'Análise de viabilidade técnica',
+  'Treinamento e suporte para equipes',
+  'Documentação técnica e operacional',
+]
+
+const consultingOffers = [
+  {
+    name: 'Consultoria por hora',
+    billing: 'daily',
+    category: 'Demanda pontual',
+    price: 'R$ 100,00',
+    unit: '/hora',
+    highlight: 'Contratação mínima de 2 horas',
+    items: [
+      'Reuniões e análises rápidas',
+      'Dúvidas técnicas e orientações específicas',
+      'Pequenas correções e validações',
+    ],
+  },
+  {
+    name: 'Diária técnica',
+    billing: 'daily',
+    category: 'Execução intensiva',
+    price: 'R$ 600,00',
+    unit: '/diária',
+    highlight: 'Até 8 horas de atuação',
+    items: [
+      'Visitas técnicas e treinamentos',
+      'Acompanhamento de implantação',
+      'Análise de sistemas e melhorias',
+    ],
+  },
+  {
+    name: 'Pacote Pontual',
+    billing: 'monthly',
+    category: 'Mensal',
+    price: 'R$ 500,00',
+    unit: '/mês',
+    highlight: 'Até 5 horas mensais',
+    items: [
+      'Suporte eventual durante o mês',
+      'Análises e ajustes de baixa complexidade',
+      'Canal recorrente com a VSTech',
+    ],
+  },
+  {
+    name: 'Pacote Operacional',
+    billing: 'monthly',
+    category: 'Mensal',
+    price: 'R$ 900,00',
+    unit: '/mês',
+    highlight: 'Até 10 horas mensais',
+    items: [
+      'Acompanhamento recorrente',
+      'Suporte técnico e pequenas demandas',
+      'Evolução contínua da operação digital',
+    ],
+  },
+  {
+    name: 'Pacote Estratégico',
+    billing: 'monthly',
+    category: 'Mensal',
+    price: 'R$ 1.600,00',
+    unit: '/mês',
+    highlight: 'Até 20 horas mensais',
+    items: [
+      'Apoio técnico mais próximo',
+      'Reuniões recorrentes e análise de melhorias',
+      'Acompanhamento da evolução dos sistemas',
+    ],
+    featured: true,
+  },
+]
+
+const consultingNotes = [
+  'Demandas que envolvam novas funcionalidades, integrações complexas, criação de sistemas ou grandes alterações podem ser orçadas separadamente como projeto.',
+  'Atividades presenciais podem ter cobrança adicional de deslocamento, alimentação ou custos operacionais, quando aplicável.',
+  'Horas não utilizadas dentro dos pacotes mensais não são acumulativas, salvo acordo prévio entre as partes.',
 ]
 
 const highlights = [
@@ -86,9 +178,16 @@ const contactCards = [
 const footerPrimaryLinks = [
   { id: 'inicio', label: 'Início' },
   { id: 'servicos', label: 'Serviços' },
+  { id: 'consultoria', label: 'Consultoria' },
   { id: 'produto', label: 'VSLabs' },
   { id: 'contato', label: 'Contato' },
 ]
+
+const CONSULTING_PLANS_PATH = '/consultoria/planos'
+
+function getNormalizedPath(pathname) {
+  return pathname.replace(/\/+$/, '') || '/'
+}
 
 function getSectionPath(sectionId) {
   if (sectionId === 'inicio') {
@@ -103,7 +202,7 @@ function getSectionPath(sectionId) {
 }
 
 function getHomeSectionFromPath(pathname) {
-  const normalized = pathname.replace(/\/+$/, '') || '/'
+  const normalized = getNormalizedPath(pathname)
 
   if (normalized === '/') {
     return 'inicio'
@@ -116,8 +215,12 @@ function getHomeSectionFromPath(pathname) {
 export default function App() {
   const [activeSection, setActiveSection] = useState('inicio')
   const [isContactPage, setIsContactPage] = useState(
-    window.location.pathname.replace(/\/+$/, '') === '/contato',
+    getNormalizedPath(window.location.pathname) === '/contato',
   )
+  const [isConsultingPlansPage, setIsConsultingPlansPage] = useState(
+    getNormalizedPath(window.location.pathname) === CONSULTING_PLANS_PATH,
+  )
+  const [consultingPlansView, setConsultingPlansView] = useState('monthly')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const sectionRefs = useRef({})
   const historyModeRef = useRef('replace')
@@ -128,13 +231,22 @@ export default function App() {
 
   useEffect(() => {
     const syncFromPath = () => {
-      const isContact = window.location.pathname.replace(/\/+$/, '') === '/contato'
+      const pathname = getNormalizedPath(window.location.pathname)
+      const isContact = pathname === '/contato'
+      const isConsultingPlans = pathname === CONSULTING_PLANS_PATH
       setIsContactPage(isContact)
+      setIsConsultingPlansPage(isConsultingPlans)
       setIsMobileMenuOpen(false)
       clearPendingSection()
 
       if (isContact) {
         setActiveSection('contato')
+        window.scrollTo({ top: 0, behavior: 'auto' })
+        return
+      }
+
+      if (isConsultingPlans) {
+        setActiveSection('consultoria')
         window.scrollTo({ top: 0, behavior: 'auto' })
         return
       }
@@ -185,7 +297,7 @@ export default function App() {
   }, [isMobileMenuOpen])
 
   useEffect(() => {
-    if (isContactPage) {
+    if (isContactPage || isConsultingPlansPage) {
       return undefined
     }
 
@@ -242,7 +354,7 @@ export default function App() {
     })
 
     return () => observer.disconnect()
-  }, [isContactPage])
+  }, [isConsultingPlansPage, isContactPage])
 
   function navigateToContact() {
     if (window.location.pathname !== '/contato') {
@@ -250,7 +362,20 @@ export default function App() {
     }
 
     setIsContactPage(true)
+    setIsConsultingPlansPage(false)
     setActiveSection('contato')
+    setIsMobileMenuOpen(false)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  function navigateToConsultingPlans() {
+    if (getNormalizedPath(window.location.pathname) !== CONSULTING_PLANS_PATH) {
+      window.history.pushState(null, '', CONSULTING_PLANS_PATH)
+    }
+
+    setIsContactPage(false)
+    setIsConsultingPlansPage(true)
+    setActiveSection('consultoria')
     setIsMobileMenuOpen(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -311,12 +436,15 @@ export default function App() {
       return
     }
 
+    setIsConsultingPlansPage(false)
+
     if (window.location.pathname !== nextPath) {
       window.history.pushState(null, '', nextPath)
     }
 
-    if (isContactPage) {
+    if (isContactPage || isConsultingPlansPage) {
       setIsContactPage(false)
+      setIsConsultingPlansPage(false)
       setActiveSection(sectionId)
       window.setTimeout(() => {
         scrollToSection(sectionId, 'push')
@@ -340,6 +468,10 @@ export default function App() {
       </button>
     ))
   }
+
+  const visibleConsultingOffers = consultingOffers.filter(
+    (offer) => offer.billing === consultingPlansView,
+  )
 
   return (
     <div className="page-shell">
@@ -436,11 +568,11 @@ export default function App() {
           <section className="section contact-page">
             <div className="contact-page__hero">
               <p className="eyebrow">Contato</p>
-              <h1>Vamos conversar sobre o software certo para o seu negócio.</h1>
+              <h1>Vamos conversar sobre software e consultoria para o seu negócio.</h1>
               <p className="hero-text contact-page__text">
                 Centralizamos aqui o caminho de contato da VSTech. Se sua empresa
-                precisa construir um produto, evoluir um sistema existente ou
-                digitalizar uma operação crítica, este é o próximo passo.
+                precisa construir um produto, evoluir um sistema existente, organizar
+                processos digitais ou contratar consultoria técnica, este é o próximo passo.
               </p>
             </div>
 
@@ -467,6 +599,96 @@ export default function App() {
             </div>
           </section>
         </main>
+      ) : isConsultingPlansPage ? (
+        <main className="page-main page-main--consulting">
+          <section className="section consulting-plans-page">
+            <div className="consulting-plans-page__hero">
+              <p className="eyebrow">Planos de consultoria</p>
+              <h1>Formatos de contratação para demandas pontuais, recorrentes e estratégicas.</h1>
+              <p className="hero-text contact-page__text">
+                Aqui estão os formatos de contratação da consultoria técnica da VSTech.
+                Eles atendem desde análises rápidas até acompanhamento mensal mais próximo.
+              </p>
+            </div>
+
+            <div className="consulting-plan-switcher" role="tablist" aria-label="Tipos de contratação">
+              <button
+                className={`consulting-plan-switcher__button ${consultingPlansView === 'daily' ? 'consulting-plan-switcher__button--active' : ''}`}
+                type="button"
+                role="tab"
+                aria-selected={consultingPlansView === 'daily'}
+                onClick={() => setConsultingPlansView('daily')}
+              >
+                Pontuais
+              </button>
+              <button
+                className={`consulting-plan-switcher__button ${consultingPlansView === 'monthly' ? 'consulting-plan-switcher__button--active' : ''}`}
+                type="button"
+                role="tab"
+                aria-selected={consultingPlansView === 'monthly'}
+                onClick={() => setConsultingPlansView('monthly')}
+              >
+                Mensais
+              </button>
+            </div>
+
+            <div className="consulting-pricing-grid">
+              {visibleConsultingOffers.map((offer) => (
+                <article
+                  className={`consulting-card ${offer.featured ? 'consulting-card--featured' : ''}`}
+                  key={offer.name}
+                >
+                  <span className="consulting-card__category">{offer.category}</span>
+                  <h3>{offer.name}</h3>
+                  <div className="consulting-card__price">
+                    <strong>{offer.price}</strong>
+                    <span>{offer.unit}</span>
+                  </div>
+                  <p className="consulting-card__highlight">{offer.highlight}</p>
+                  <div className="consulting-card__divider" />
+                  <ul className="consulting-card__list">
+                    {offer.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  <button
+                    className={`button ${offer.featured ? 'button--primary' : 'button--secondary'} consulting-card__cta`}
+                    type="button"
+                    onClick={navigateToContact}
+                  >
+                    Solicitar este formato
+                  </button>
+                </article>
+              ))}
+            </div>
+
+            <div className="consulting-notes">
+              <span className="footer-label">Observações</span>
+              <ul className="consulting-notes__list">
+                {consultingNotes.map((note) => (
+                  <li key={note}>{note}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="consulting-page-actions">
+              <button
+                className="button button--secondary"
+                type="button"
+                onClick={() => handleSectionNavigation('consultoria')}
+              >
+                Voltar para consultoria
+              </button>
+              <button
+                className="button button--primary"
+                type="button"
+                onClick={navigateToContact}
+              >
+                Falar com a VSTech
+              </button>
+            </div>
+          </section>
+        </main>
       ) : (
         <main className="page-main">
           <section
@@ -478,12 +700,12 @@ export default function App() {
           >
             <div className="hero-copy">
               <p className="eyebrow">Software com foco em resultado real</p>
-              <h1>Desenvolvimento de software para empresas de setores diversos.</h1>
+              <h1>Desenvolvimento de software e consultoria técnica para empresas.</h1>
               <p className="hero-text">
                 A VSTech cria sistemas, plataformas e produtos digitais para empresas
                 que precisam transformar operação em eficiência, controle e crescimento.
-                Atuamos do discovery à entrega, com leitura rápida do negócio e foco
-                em solução aplicável.
+                Também apoiamos equipes com consultoria técnica para analisar, corrigir,
+                evoluir e organizar sistemas já existentes com mais clareza.
               </p>
 
               <div className="hero-actions">
@@ -497,9 +719,9 @@ export default function App() {
                 <button
                   className="button button--secondary"
                   type="button"
-                  onClick={() => handleSectionNavigation('produto')}
+                  onClick={() => handleSectionNavigation('consultoria')}
                 >
-                  Conhecer o VSLabs
+                  Ver consultoria
                 </button>
               </div>
             </div>
@@ -507,10 +729,11 @@ export default function App() {
             <div className="hero-panel">
               <div className="signal-card">
                 <span className="signal-label">Posicionamento VSTech</span>
-                <strong>Software sob medida, produtos próprios e execução orientada ao negócio.</strong>
+                <strong>Software sob medida, consultoria técnica e execução orientada ao negócio.</strong>
                 <p>
                   Unimos visão técnica, experiência de produto e entendimento operacional
-                  para entregar software útil em contextos simples ou altamente específicos.
+                  para entregar software útil e apoio consultivo em contextos simples ou
+                  altamente específicos.
                 </p>
               </div>
 
@@ -578,6 +801,70 @@ export default function App() {
                   </button>
                 </article>
               ))}
+            </div>
+          </section>
+
+          <section
+            id="consultoria"
+            ref={(node) => {
+              sectionRefs.current.consultoria = node
+            }}
+            className="section section--consulting section-stage"
+          >
+            <div className="section-heading">
+              <p className="eyebrow">Consultoria técnica</p>
+              <h2>Apoio especializado para manter, corrigir, evoluir e organizar sistemas.</h2>
+            </div>
+
+            <div className="consulting-intro">
+              <div className="consulting-copy">
+                <p className="section-intro section-intro--wide">
+                  O serviço de consultoria da VSTech apoia empresas que precisam manter,
+                  corrigir, evoluir ou organizar seus sistemas e processos digitais.
+                </p>
+                <p className="section-intro section-intro--wide">
+                  A consultoria pode ser usada para análise de sistemas existentes,
+                  manutenção, correção de erros, melhorias, implantação de novas soluções,
+                  automações, integrações e orientação técnica para tomada de decisão.
+                </p>
+              </div>
+
+              <div className="consulting-summary-card">
+                <span className="signal-label">Quando faz sentido contratar</span>
+                <strong>Quando sua empresa precisa clareza técnica antes, durante ou depois do desenvolvimento.</strong>
+                <p>
+                  A VSTech pode entrar em demandas pontuais, acompanhamento recorrente
+                  ou apoio estratégico para decisões mais sensíveis de sistema e operação.
+                </p>
+              </div>
+            </div>
+
+            {/* <div className="consulting-areas">
+              {consultingAreas.map((area) => (
+                <article className="consulting-area-pill" key={area}>
+                  {area}
+                </article>
+              ))}
+            </div> */}
+
+            <div className="consulting-pricing-heading">
+              <p className="eyebrow">Contratação</p>
+              <h3>Conheça os formatos de consultoria e veja qual faz mais sentido para a sua empresa.</h3>
+            </div>
+
+            <div className="consulting-cta-card">
+              <strong>Planos, valores e formatos de contratação</strong>
+              <p>
+                A VSTech disponibiliza consultoria por hora, diária técnica e pacotes
+                mensais. Abra a página dedicada para ver os detalhes completos.
+              </p>
+              <button
+                className="button button--primary"
+                type="button"
+                onClick={navigateToConsultingPlans}
+              >
+                Saiba mais
+              </button>
             </div>
           </section>
 
