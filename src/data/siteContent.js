@@ -199,10 +199,10 @@ export const contactCards = [
     detail:
       'Podemos alinhar escopo, prioridade, prazo e visão de entrega antes de avançar para uma proposta mais estruturada.',
   },
-  {
-    title: 'Contato direto',
-    detail: 'vstech-contato@outlook.com',
-  },
+  // {
+  //   title: 'Contato direto',
+  //   detail: 'vstech-contato@outlook.com',
+  // },
 ]
 
 export const homePreviewCards = [

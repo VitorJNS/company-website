@@ -102,7 +102,7 @@ export default function HomePageVisual({ onNavigate }) {
 
       <HomeJourney />
 
-      <section className="section home-preview-section">
+      {/* <section className="section home-preview-section">
         <div className="section-heading">
           <p className="eyebrow">Navegação principal</p>
           <h2>Uma home mais objetiva, com cada assunto em sua própria página.</h2>
@@ -124,7 +124,7 @@ export default function HomePageVisual({ onNavigate }) {
             </article>
           ))}
         </div>
-      </section>
+      </section> */}
     </main>
   )
 }
