@@ -42,6 +42,7 @@ Site institucional em `React + Vite`, em `pt-BR`, para apresentar a VSTech como 
 
 - A Vercel precisa reescrever rotas da SPA para `index.html`
 - O arquivo `vercel.json` foi adicionado para permitir acesso direto a URLs como `/setores`, `/consultoria` e `/contato`
+- A tag do Google Ads `AW-18264041170` foi instalada manualmente em [index.html](/C:/Users/vitor/OneDrive/Desktop/vstech/index.html) logo após a abertura do `<head>`
 
 ## Responsividade
 
