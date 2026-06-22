@@ -2,8 +2,8 @@ import { CONTACT_EMAIL, contactCards } from '../data/siteContent'
 
 export default function ContatoPage({ onNavigateToHome }) {
   return (
-    <main className="page-main page-main--contact">
-      <section className="section contact-page">
+    <main className="page-main page-main--contact page-main--single">
+      <section className="section section-stage contact-page">
         <div className="contact-page__hero">
           <p className="eyebrow">Contato</p>
           <h1>Vamos conversar sobre software e consultoria para o seu negócio.</h1>
@@ -23,10 +23,7 @@ export default function ContatoPage({ onNavigateToHome }) {
           ))}
         </div>
 
-        <div className="contact-actions">
-          <a className="button button--primary" href={`mailto:${CONTACT_EMAIL}`}>
-            {CONTACT_EMAIL}
-          </a>
+        <div className="hero-actions contact-actions">
           <button
             className="button button--secondary"
             type="button"
@@ -34,6 +31,9 @@ export default function ContatoPage({ onNavigateToHome }) {
           >
             Voltar para a home
           </button>
+          <a className="button button--primary" href={`mailto:${CONTACT_EMAIL}`}>
+            Fale com um de nossos consultores
+          </a>
         </div>
       </section>
     </main>

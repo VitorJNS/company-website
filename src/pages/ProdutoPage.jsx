@@ -1,7 +1,7 @@
 export default function ProdutoPage() {
   return (
     <main className="page-main page-main--single">
-      <section className="section section--product section-stage">
+      <section className="section section--product">
         <div className="section-heading">
           <p className="eyebrow">Produto em destaque</p>
           <h2>VSLabs: plataforma laboratorial criada para digitalizar processos analíticos.</h2>

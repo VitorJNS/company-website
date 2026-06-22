@@ -10,14 +10,46 @@ export const mainPages = [
 export const footerLinks = [...mainPages, { id: 'contato', label: 'Contato', path: '/contato' }]
 
 export const sectors = [
-  'Financeiro',
-  'Químico',
-  'Farmacêutico',
-  'Alimentício',
-  'Oil and Gas',
-  'Energia',
-  'Indústria e operações',
-  'Tecnologia corporativa',
+  {
+    title: 'Financeiro',
+    example:
+      'Portais internos, dashboards operacionais, fluxos de aprovação, conciliações, integrações e automações para reduzir retrabalho e dar mais controle à operação.',
+  },
+  {
+    title: 'Químico',
+    example:
+      'Sistemas para controle analítico, rastreabilidade, gestão de resultados, emissão de relatórios técnicos e digitalização de rotinas laboratoriais e industriais.',
+  },
+  {
+    title: 'Farmacêutico',
+    example:
+      'Soluções para registro de processos, organização de dados críticos, apoio à qualidade, controle de etapas e visibilidade operacional em ambientes regulados.',
+  },
+  {
+    title: 'Alimentício',
+    example:
+      'Ferramentas para acompanhamento de produção, controle de qualidade, rastreabilidade de lotes, indicadores e padronização de processos internos.',
+  },
+  {
+    title: 'Oil and Gas',
+    example:
+      'Plataformas para consolidar dados operacionais, monitorar rotinas de campo, organizar informações técnicas e apoiar decisões com mais rapidez e segurança.',
+  },
+  {
+    title: 'Energia',
+    example:
+      'Sistemas para gestão de ativos, acompanhamento de operação, centralização de indicadores, integração de fontes de dados e suporte a processos críticos.',
+  },
+  {
+    title: 'Indústria e operações',
+    example:
+      'Soluções sob medida para digitalizar fluxos manuais, conectar áreas, melhorar rastreabilidade e dar mais previsibilidade à execução do dia a dia.',
+  },
+  {
+    title: 'Tecnologia corporativa',
+    example:
+      'Portais, backoffices, sistemas internos, integrações e produtos digitais para apoiar times administrativos, comerciais, técnicos e operacionais.',
+  },
 ]
 
 export const services = [
@@ -145,7 +177,7 @@ export const highlights = [
   },
   {
     value: 'Entrega orientada',
-    label: 'foco em resolver operação, não apenas construir tela',
+    label: 'soluções pensadas para tirar fricção da rotina e gerar resultado real',
   },
 ]
 
@@ -201,6 +233,39 @@ export const homePreviewCards = [
     title: 'VSLabs como prova concreta de especialização aplicada.',
     description:
       'Conheça o produto laboratorial da VSTech e o tipo de problema que ele resolve.',
+  },
+]
+
+export const homeJourneySteps = [
+  {
+    id: 'imersao',
+    title: 'Imersão',
+    subtitle: 'Entendimento do cenário',
+    description: 'Mapeamos o processo atual, gargalos, objetivos e contexto operacional do cliente.',
+  },
+  {
+    id: 'diagnostico',
+    title: 'Diagnóstico',
+    subtitle: 'Leitura técnica e de negócio',
+    description: 'Transformamos a necessidade em direção clara, com prioridades e visão prática do que precisa ser resolvido.',
+  },
+  {
+    id: 'estrategia',
+    title: 'Estratégia',
+    subtitle: 'Definição da solução',
+    description: 'Desenhamos a abordagem mais adequada, seja consultoria, evolução de sistema ou desenvolvimento sob medida.',
+  },
+  {
+    id: 'implementacao',
+    title: 'Implementação',
+    subtitle: 'Execução orientada',
+    description: 'Construímos, corrigimos ou organizamos a solução com foco no uso real e na operação do dia a dia.',
+  },
+  {
+    id: 'evolucao',
+    title: 'Evolução',
+    subtitle: 'Escala e continuidade',
+    description: 'Apoiamos a melhoria contínua para o software acompanhar crescimento, eficiência e novas demandas.',
   },
 ]
 

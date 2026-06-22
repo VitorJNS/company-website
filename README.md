@@ -10,6 +10,7 @@ Site institucional em `React + Vite`, em `pt-BR`, para apresentar a VSTech como 
 ## Contato oficial
 
 - E-mail institucional: `vstech-contato@outlook.com`
+- A página de contato usa um CTA principal mais curto, `Fale conosco`, para manter o mesmo porte visual natural dos botões da Home
 
 ## Estrutura atual
 
@@ -27,6 +28,8 @@ Site institucional em `React + Vite`, em `pt-BR`, para apresentar a VSTech como 
 - O menu principal navega por páginas dedicadas dentro da SPA
 - Cada item do menu possui URL própria
 - A `Home` funciona como entrada institucional e distribui o usuário para os temas principais
+- A copy da Home foi refinada para ficar mais comercial e descrever melhor a experiência percebida pelo cliente
+- O título principal da Home agora usa animação de escrita na entrada
 - `Contato` e `Fale conosco` levam para a rota dedicada `/contato`
 - A página de consultoria usa um botão `Saiba mais` para abrir `/consultoria/planos`
 - A tela `/consultoria/planos` permite alternar entre formatos `Pontuais` e `Mensais`
@@ -45,6 +48,15 @@ Site institucional em `React + Vite`, em `pt-BR`, para apresentar a VSTech como 
 - Cards, métricas e blocos de contato usam espaçamento mais compacto no celular
 - O footer se reorganiza para layout mais simples e confortável no mobile
 - Breakpoints menores usam tipografia e espaçamentos ainda mais contidos para telas estreitas
+- As páginas principais agora compartilham respiro vertical mais consistente entre topo e base
+- Home, VSLabs e Diferenciais foram alinhadas ao mesmo ritmo visual das demais páginas institucionais
+- O hero da Home teve o alinhamento interno ajustado para ficar mais consistente com o topo visual das páginas internas
+- A página de contato passou a seguir o mesmo conceito de espaçamento estrutural das páginas institucionais internas
+
+## Home
+
+- A Home ganhou um bloco visual de jornada/processo em cards para reduzir dependência de texto corrido
+- O fluxo mostra a atuação da VSTech da imersão até a evolução da solução, com etapas numeradas, ícones e mensagem final de posicionamento
 
 ## Footer
 
@@ -63,6 +75,10 @@ Site institucional em `React + Vite`, em `pt-BR`, para apresentar a VSTech como 
 - A consultoria técnica da VSTech possui página própria com contexto, áreas de atuação e CTA para contratação
 - Os planos, valores e formatos de contratação ficam em uma tela dedicada: `/consultoria/planos`
 - Os cards de consultoria nessa tela direcionam o usuário para a rota de contato
+
+## Setores
+
+- A página de setores agora apresenta exemplos práticos de como a VSTech pode atuar em cada segmento
 
 ## Scripts
 

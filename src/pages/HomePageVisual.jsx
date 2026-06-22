@@ -1,14 +1,58 @@
+import { useEffect, useState } from 'react'
+import HomeJourney from '../components/HomeJourney'
 import { highlights, homePreviewCards } from '../data/siteContent'
 
-export default function HomePage({ onNavigate }) {
+export default function HomePageVisual({ onNavigate }) {
+  const titleText = 'Desenvolvimento de software e consultoria técnica para empresas.'
+  const [displayTitle, setDisplayTitle] = useState('')
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+
+    if (mediaQuery.matches) {
+      setDisplayTitle(titleText)
+      return undefined
+    }
+
+    let frame = 0
+    let intervalId = null
+
+    const timeoutId = window.setTimeout(() => {
+      intervalId = window.setInterval(() => {
+        frame += 1
+        setDisplayTitle(titleText.slice(0, frame))
+
+        if (frame >= titleText.length) {
+          window.clearInterval(intervalId)
+        }
+      }, 28)
+    }, 220)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+
+      if (intervalId) {
+        window.clearInterval(intervalId)
+      }
+    }
+  }, [])
+
   return (
     <main className="page-main page-main--home page-main--single">
       <section className="hero section-stage">
         <div className="hero-copy">
           <p className="eyebrow">Software com foco em resultado real</p>
-          <h1>Desenvolvimento de software e consultoria técnica para empresas.</h1>
+          <h1 className="hero-title hero-title--typing">
+            <span className="hero-title-placeholder" aria-hidden="true">
+              {titleText}
+            </span>
+            <span className="hero-title-typed">
+              {displayTitle}
+              <span className="hero-title-cursor" aria-hidden="true" />
+            </span>
+          </h1>
           <p className="hero-text">
-            Imagine sua operação com informações centralizadas, processos mais fluídos
+            Imagine sua operação com informações centralizadas, processos mais fluidos
             e decisões acontecendo com mais velocidade. A VSTech desenvolve sistemas,
             plataformas e produtos digitais para transformar tarefas dispersas em uma
             experiência mais eficiente, controlada e escalável. Quando já existe um
@@ -55,6 +99,8 @@ export default function HomePage({ onNavigate }) {
           </div>
         </div>
       </section>
+
+      <HomeJourney />
 
       <section className="section home-preview-section">
         <div className="section-heading">

@@ -73,7 +73,7 @@ export default function ConsultoriaPlanosPage({
             type="button"
             onClick={onNavigateToContact}
           >
-            Falar com a VSTech
+            Falar com nossos Consultores
           </button>
         </div>
       </section>

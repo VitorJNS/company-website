@@ -14,10 +14,12 @@ export default function SetoresPage() {
           integração e inteligência operacional em segmentos técnicos e de negócio.
         </p>
 
-        <div className="sector-list sector-list--airy">
+        <div className="sector-grid sector-grid--airy">
           {sectors.map((sector) => (
-            <article className="sector-pill" key={sector}>
-              {sector}
+            <article className="sector-card" key={sector.title}>
+              <span className="solution-accent">Exemplos de aplicação</span>
+              <h3>{sector.title}</h3>
+              <p>{sector.example}</p>
             </article>
           ))}
         </div>

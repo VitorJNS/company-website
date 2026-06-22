@@ -3,7 +3,7 @@ import { differentiators } from '../data/siteContent'
 export default function DiferenciaisPage() {
   return (
     <main className="page-main page-main--single">
-      <section className="section section-stage section-stage--compact">
+      <section className="section">
         <div className="section-heading">
           <p className="eyebrow">Diferenciais</p>
           <h2>Uma forma de atuar pensada para empresa que precisa de solução e clareza.</h2>
