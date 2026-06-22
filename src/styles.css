@@ -1191,6 +1191,72 @@ button {
   gap: 14px;
 }
 
+.contact-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(5, 5, 6, 0.68);
+  backdrop-filter: blur(8px);
+}
+
+.contact-modal {
+  width: min(560px, 100%);
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 123, 0, 0.1), transparent 26%),
+    rgba(14, 14, 15, 0.96);
+  box-shadow: var(--shadow);
+}
+
+.contact-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.contact-modal__copy h2 {
+  margin: 6px 0 10px;
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+}
+
+.contact-modal__copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.contact-modal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  min-height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  font-weight: 700;
+}
+
+.contact-modal__actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.contact-modal__action {
+  width: 100%;
+}
+
 @media (max-width: 1160px) {
   .page-shell {
     width: min(100% - 28px, 1080px);
@@ -1407,6 +1473,10 @@ button {
 
   .consulting-plan-switcher__button {
     flex: 1 1 220px;
+  }
+
+  .contact-modal__actions {
+    grid-template-columns: 1fr;
   }
 
   .contact-card {
@@ -1715,6 +1785,15 @@ button {
     padding-top: 16px;
     padding-bottom: 16px;
     border-radius: 18px;
+  }
+
+  .contact-modal {
+    padding: 18px 16px;
+    border-radius: 20px;
+  }
+
+  .contact-modal__copy h2 {
+    font-size: clamp(1.25rem, 6vw, 1.5rem);
   }
 
   .footer-nav {

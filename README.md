@@ -10,7 +10,9 @@ Site institucional em `React + Vite`, em `pt-BR`, para apresentar a VSTech como 
 ## Contato oficial
 
 - E-mail institucional: `vstech-contato@outlook.com`
+- WhatsApp institucional: `+55 19 98322-1943`
 - A página de contato usa um CTA principal mais curto, `Fale conosco`, para manter o mesmo porte visual natural dos botões da Home
+- Os CTAs `Solicitar este formato`, `Falar com nossos Consultores` e `Fale com um de nossos consultores` abrem um modal de escolha entre e-mail e WhatsApp
 
 ## Estrutura atual
 
@@ -74,7 +76,7 @@ Site institucional em `React + Vite`, em `pt-BR`, para apresentar a VSTech como 
 
 - A consultoria técnica da VSTech possui página própria com contexto, áreas de atuação e CTA para contratação
 - Os planos, valores e formatos de contratação ficam em uma tela dedicada: `/consultoria/planos`
-- Os cards de consultoria nessa tela direcionam o usuário para a rota de contato
+- Os cards de consultoria nessa tela abrem um modal para o usuário escolher contato por e-mail ou WhatsApp
 
 ## Setores
 

@@ -17,7 +17,7 @@ export default function ConsultingPlanCard({ offer, onSelect }) {
       <button
         className={`button ${offer.featured ? 'button--primary' : 'button--secondary'} consulting-card__cta`}
         type="button"
-        onClick={onSelect}
+        onClick={() => onSelect(offer)}
       >
         Solicitar este formato
       </button>

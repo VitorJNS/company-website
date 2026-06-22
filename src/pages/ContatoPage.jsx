@@ -1,6 +1,6 @@
-import { CONTACT_EMAIL, contactCards } from '../data/siteContent'
+import { contactCards } from '../data/siteContent'
 
-export default function ContatoPage({ onNavigateToHome }) {
+export default function ContatoPage({ onNavigateToHome, onOpenContactOptions }) {
   return (
     <main className="page-main page-main--contact page-main--single">
       <section className="section section-stage contact-page">
@@ -31,9 +31,13 @@ export default function ContatoPage({ onNavigateToHome }) {
           >
             Voltar para a home
           </button>
-          <a className="button button--primary" href={`mailto:${CONTACT_EMAIL}`}>
+          <button
+            className="button button--primary"
+            type="button"
+            onClick={onOpenContactOptions}
+          >
             Fale com um de nossos consultores
-          </a>
+          </button>
         </div>
       </section>
     </main>

@@ -5,7 +5,7 @@ export default function ConsultoriaPlanosPage({
   consultingPlansView,
   visibleConsultingOffers,
   onChangePlansView,
-  onNavigateToContact,
+  onOpenContactOptions,
   onNavigateToConsultoria,
 }) {
   return (
@@ -46,7 +46,7 @@ export default function ConsultoriaPlanosPage({
             <ConsultingPlanCard
               key={offer.name}
               offer={offer}
-              onSelect={onNavigateToContact}
+              onSelect={onOpenContactOptions}
             />
           ))}
         </div>
@@ -71,7 +71,7 @@ export default function ConsultoriaPlanosPage({
           <button
             className="button button--primary"
             type="button"
-            onClick={onNavigateToContact}
+            onClick={() => onOpenContactOptions()}
           >
             Falar com nossos Consultores
           </button>

@@ -278,4 +278,5 @@ export const footerPrimaryLinks = [
 ]
 
 export const CONTACT_EMAIL = 'vstech-contato@outlook.com'
+export const CONTACT_WHATSAPP = '5519983221943'
 export const CONSULTING_PLANS_PATH = '/consultoria/planos'
