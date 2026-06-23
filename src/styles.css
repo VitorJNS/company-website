@@ -987,6 +987,149 @@ button {
     var(--panel);
 }
 
+.section--portfolio {
+  background:
+    radial-gradient(circle at top right, rgba(255, 123, 0, 0.12), transparent 26%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015)),
+    var(--panel);
+}
+
+.portfolio-hero {
+  display: grid;
+  gap: 28px;
+}
+
+.portfolio-hero__layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.portfolio-hero__copy {
+  display: grid;
+  gap: 18px;
+}
+
+.portfolio-summary-card,
+.portfolio-track-card,
+.portfolio-case-card,
+.portfolio-roadmap-card {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.portfolio-summary-card {
+  padding: 30px;
+  border-radius: 30px;
+}
+
+.portfolio-summary-card strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.28rem;
+}
+
+.portfolio-summary-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.76;
+}
+
+.portfolio-track-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.portfolio-track-card,
+.portfolio-roadmap-card {
+  min-height: 220px;
+  padding: 26px;
+  border-radius: 28px;
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.portfolio-track-card:hover,
+.portfolio-case-card:hover,
+.portfolio-roadmap-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+}
+
+.portfolio-track-card h3,
+.portfolio-case-card h3,
+.portfolio-roadmap-card h3 {
+  margin: 0 0 12px;
+  font-family: 'Sora', sans-serif;
+  font-size: 1.26rem;
+}
+
+.portfolio-track-card p,
+.portfolio-case-card p,
+.portfolio-roadmap-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.76;
+}
+
+.portfolio-case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.portfolio-case-card {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-height: 100%;
+  padding: 28px;
+  border-radius: 30px;
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.portfolio-case-card__summary {
+  color: var(--text) !important;
+  font-weight: 700;
+}
+
+.portfolio-case-card__list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.62;
+}
+
+.portfolio-capabilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.portfolio-capability-pill {
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 123, 0, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 123, 0, 0.08);
+  font-weight: 700;
+}
+
+.section--portfolio-roadmap {
+  background:
+    radial-gradient(circle at bottom right, rgba(255, 123, 0, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015)),
+    var(--panel);
+}
+
+.portfolio-roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
 .product-layout,
 .partners-layout {
   display: grid;
@@ -1284,11 +1427,14 @@ button {
 
   .product-layout,
   .partners-layout,
-  .consulting-intro {
+  .consulting-intro,
+  .portfolio-hero__layout {
     grid-template-columns: 1fr;
   }
 
-  .journey-cards {
+  .journey-cards,
+  .portfolio-track-grid,
+  .portfolio-roadmap-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -1314,7 +1460,10 @@ button {
   .consulting-pricing-grid,
   .contact-grid,
   .cta-banner,
-  .footer-top {
+  .footer-top,
+  .portfolio-track-grid,
+  .portfolio-case-grid,
+  .portfolio-roadmap-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1648,7 +1797,11 @@ button {
   .consulting-summary-card,
   .consulting-card,
   .consulting-notes,
-  .consulting-cta-card {
+  .consulting-cta-card,
+  .portfolio-summary-card,
+  .portfolio-track-card,
+  .portfolio-case-card,
+  .portfolio-roadmap-card {
     padding: 14px;
     border-radius: 18px;
   }
@@ -1747,7 +1900,18 @@ button {
     gap: 8px;
   }
 
+  .portfolio-capabilities {
+    gap: 8px;
+  }
+
   .sector-pill {
+    width: 100%;
+    text-align: center;
+    padding: 10px 12px;
+    font-size: 0.84rem;
+  }
+
+  .portfolio-capability-pill {
     width: 100%;
     text-align: center;
     padding: 10px 12px;

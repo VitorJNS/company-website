@@ -1,5 +1,6 @@
 export const mainPages = [
   { id: 'inicio', label: 'Início', path: '/' },
+  { id: 'portfolio', label: 'Portfólio', path: '/portfolio' },
   { id: 'setores', label: 'Setores', path: '/setores' },
   { id: 'servicos', label: 'Serviços', path: '/servicos' },
   { id: 'consultoria', label: 'Consultoria', path: '/consultoria' },
@@ -199,13 +200,16 @@ export const contactCards = [
     detail:
       'Podemos alinhar escopo, prioridade, prazo e visão de entrega antes de avançar para uma proposta mais estruturada.',
   },
-  // {
-  //   title: 'Contato direto',
-  //   detail: 'vstech-contato@outlook.com',
-  // },
 ]
 
 export const homePreviewCards = [
+  {
+    id: 'portfolio',
+    eyebrow: 'Portfólio',
+    title: 'Cases, produtos e capacidades para mostrar o tipo de solução que entregamos.',
+    description:
+      'Veja frentes já trabalhadas, recursos implementados e produtos em evolução dentro da VSTech.',
+  },
   {
     id: 'setores',
     eyebrow: 'Mercados',
@@ -271,10 +275,132 @@ export const homeJourneySteps = [
 
 export const footerPrimaryLinks = [
   { id: 'inicio', label: 'Início' },
+  { id: 'portfolio', label: 'Portfólio' },
   { id: 'servicos', label: 'Serviços' },
   { id: 'consultoria', label: 'Consultoria' },
   { id: 'produto', label: 'VSLabs' },
   { id: 'contato', label: 'Contato' },
+]
+
+export const portfolioTracks = [
+  {
+    title: 'Sistemas de reservas e agendamento',
+    description:
+      'Fluxos para solicitação, confirmação, bloqueio de datas, organização operacional e comunicação com clientes.',
+  },
+  {
+    title: 'Sistemas laboratoriais',
+    description:
+      'Produtos e soluções para digitalizar processos analíticos, estruturar dados técnicos e melhorar rastreabilidade.',
+  },
+  {
+    title: 'Transcrição e estruturação de áudio',
+    description:
+      'Experiências que transformam fala em informação utilizável, com foco em produtividade comercial e operação.',
+  },
+  {
+    title: 'Automações de processos',
+    description:
+      'Rotinas para reduzir retrabalho, conectar etapas, centralizar informações e dar mais consistência ao dia a dia.',
+  },
+  {
+    title: 'Landing pages e presença digital',
+    description:
+      'Páginas comerciais e estruturas institucionais criadas para posicionar a marca, explicar a oferta e gerar contato.',
+  },
+  {
+    title: 'CRM e operação comercial',
+    description:
+      'Soluções para organizar funil, dados de atendimento e contexto comercial, inclusive em frentes ainda em evolução.',
+  },
+]
+
+export const portfolioCases = [
+  {
+    eyebrow: 'Case aplicado',
+    title: 'Reservator',
+    summary:
+      'Sistema de reservas e agendamento com experiência pública, painel administrativo e regras de confirmação.',
+    details:
+      'A solução foi estruturada para receber solicitações, organizar disponibilidade, confirmar reservas e manter o fluxo mais confiável para operação e atendimento.',
+    bullets: [
+      'Painel administrativo com decisão de status',
+      'Bloqueio de datas após confirmação',
+      'Integração com WhatsApp e notificações',
+      'Persistência em banco de dados',
+    ],
+  },
+  {
+    eyebrow: 'Produto proprietário',
+    title: 'VSLabs',
+    summary:
+      'Plataforma laboratorial pensada para digitalizar rotinas analíticas, estruturar informação e apoiar rastreabilidade.',
+    details:
+      'O produto reforça a especialização da VSTech em ambientes técnicos, onde processos, dados e confiabilidade precisam caminhar juntos.',
+    bullets: [
+      'Centralização de dados laboratoriais',
+      'Apoio à rastreabilidade e controle',
+      'Digitalização de rotinas técnicas',
+      'Visão de produto para mercado especializado',
+    ],
+  },
+  {
+    eyebrow: 'Facilidades',
+    title: 'Transcrição de áudio para CRM',
+    summary:
+      'Captura de fala e transcrição em tempo real para organizar informações em estrutura de CRM.',
+    details:
+      'Essa frente mostra capacidade de validação rápida de ideias, experimentação orientada a uso real e leitura de contexto comercial a partir de linguagem natural.',
+    bullets: [
+      'Captura de voz direto no navegador',
+      'Transcrição em português',
+      'Extração estruturada de dados',
+      'Arquitetura leve para validação inicial',
+    ],
+  },
+  {
+    eyebrow: 'Presença comercial',
+    title: 'Landing pages e sites orientados a contato',
+    summary:
+      'Estruturas institucionais e páginas comerciais para apresentar serviços, produtos e propostas de valor com clareza.',
+    details:
+      'Essa camada do portfólio mostra que a VSTech também entrega interfaces voltadas para posicionamento, conversão e comunicação de oferta.',
+    bullets: [
+      'Arquitetura SPA com rotas dedicadas',
+      'Copy comercial orientada a serviço',
+      'Responsividade e experiência mobile',
+      'CTAs com contato por e-mail e WhatsApp',
+    ],
+  },
+]
+
+export const portfolioCapabilities = [
+  'Integração com pagamentos',
+  'Gerenciamento de usuários e permissões',
+  'Persistência de dados e banco relacional',
+  'Painéis administrativos e workflows internos',
+  'Notificações por e-mail e WhatsApp',
+  'Processamento de áudio e estruturação de dados',
+  'Landing pages e experiências de aquisição',
+  'Automações para reduzir retrabalho operacional',
+]
+
+export const portfolioRoadmap = [
+  {
+    title: 'CRM em desenvolvimento',
+    description:
+      'Frente em evolução para organizar operação comercial, relacionamento e contexto de atendimento com mais clareza.',
+  },
+  {
+    title: 'Novas automações operacionais',
+    description:
+      'Expansão de soluções que conectam etapas, eliminam controles dispersos e aumentam previsibilidade para a operação.',
+  },
+  {
+    title: 'Produtos próprios e especializações',
+    description:
+      'Continuidade na criação de produtos aplicados a mercados técnicos e necessidades específicas de negócio.',
+  },
 ]
 
 export const CONTACT_EMAIL = 'vstech-contato@outlook.com'

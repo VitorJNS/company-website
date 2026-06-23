@@ -8,6 +8,7 @@ import ConsultoriaPlanosPage from './pages/ConsultoriaPlanosPage'
 import ContatoPage from './pages/ContatoPage'
 import DiferenciaisPage from './pages/DiferenciaisPage'
 import HomePage from './pages/HomePageVisual'
+import PortfolioPage from './pages/PortfolioPage'
 import ProdutoPage from './pages/ProdutoPage'
 import ServicosPage from './pages/ServicosPage'
 import SetoresPage from './pages/SetoresPage'
@@ -180,6 +181,13 @@ export default function AppRoot() {
 
   function renderCurrentPage() {
     switch (currentPage) {
+      case 'portfolio':
+        return (
+          <PortfolioPage
+            onNavigateToContact={openGeneralContactOptions}
+            onNavigateToServices={() => navigateToPage('servicos')}
+          />
+        )
       case 'setores':
         return <SetoresPage />
       case 'servicos':
