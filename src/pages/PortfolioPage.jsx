@@ -95,7 +95,7 @@ export default function PortfolioPage({ onNavigateToContact, onNavigateToService
       <section className="section">
         <div className="section-heading">
           <p className="eyebrow">Recursos já implementados</p>
-          <h2>Features que também fortalecem o portfólio, mesmo quando o projeto não entra como case principal.</h2>
+          <h2>Algumas das features ja implementadas</h2>
         </div>
 
         <div className="portfolio-capabilities">
